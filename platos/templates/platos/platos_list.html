@@ -1,0 +1,16 @@
+{% extends "platos/base_generic.html" %}
+
+{% block content %}
+<h1>Bienvenidos !!! </h1>
+    {% if nombre and precio %}
+        <p>El plato existe!!</p>
+        <p>Nombre: {{ nombre }}<p>
+        <p>Precio: {{ precio }}</p>
+        <p>Procedencia: {{ procedencia }}</p>
+    {% endif %}
+    {% for plato in data %}
+        {% if plato.nombre %}
+            <p>El plato: <strong> {{ plato.nombre }}</strong> de precio <strong> {{ plato.precio }}</strong> proviene de <strong> {{ plato.procedencia }} </strong></p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "meseros/base_generic.html" %}
+
+{% block content %}
+<h1>Bienvenidos !!! </h1>
+    {% for mesero in data %}
+        {% if mesero.nombre %}
+            <p>El mesero: <strong> {{ mesero.nombre }}</strong> de edad <strong> {{ mesero.edad }}</strong> proviene de <strong> {{ mesero.procedencia }} </strong></p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
