@@ -1,0 +1,29 @@
+{% extends "meseros/base_generic.html" %}
+
+{% block content %}
+    <h3>Lista de Meseros registrados (VBC)</h3>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for meseros in object_list %}
+                <tr>
+{#                El forloop.counter va a contar numeros#}
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><p>{{ meseros.nombre }} tiene {{ meseros.edad }} años y es de {{ meseros.procedencia }}</p></td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'meseros_update_vc' meseros.id %}" role="button">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'meseros_delete_vc' meseros.id %}" role="button">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
